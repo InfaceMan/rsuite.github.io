@@ -21,6 +21,8 @@ import ready from './ready';
 import { setTitle, defateTilte } from './title';
 import menu from './fixtures/menu';
 
+import ThemeEditor from './tools/theme-editor';
+
 const routes = menu.map(item => {
   const children = [];
   item.children.forEach(child => {
@@ -52,6 +54,7 @@ const AppWithRouter = () => (
       <IndexRoute component={Home} onEnter={defateTilte} />
       {routes}
     </Route>
+    <Route path="/theme-editor" component={ThemeEditor} />
   </Router>
 );
 

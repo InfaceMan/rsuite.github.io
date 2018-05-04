@@ -59,6 +59,12 @@ export default [
       {
         id: 'icons',
         name: '图标库'
+      },
+      {
+        id: 'theme-editor',
+        target: '_blank',
+        url: '/theme-editor',
+        name: '定制主题'
       }
     ]
   }

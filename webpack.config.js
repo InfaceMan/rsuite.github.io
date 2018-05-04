@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 const markdownRenderer = require('react-markdown-reader').renderer;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const iconPath = ['./node_modules/rsuite/styles', '../rsuite/styles'].map(relativePath =>
   path.resolve(__dirname, relativePath)
@@ -136,7 +137,13 @@ module.exports = {
       title: 'RSUITE | 一套 React 的 UI 组件库',
       template: 'src/index.html',
       inject: true
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: 'node_modules/monaco-editor/min/vs',
+        to: 'vs'
+      }
+    ])
   ],
   devtool: STYLE_DEBUG === 'SOURCE' && 'source-map'
 };
